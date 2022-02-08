@@ -1,0 +1,84 @@
+.largeBox-wrap {
+  display: flex;
+  overflow-x: scroll;
+  height: 450px;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+.box-wrap {
+  display: flex;
+  overflow-x: scroll;
+  height: 220px;
+  align-items: center;
+  scroll-behavior: smooth;
+}
+/* very special code.............................................................. */
+.box-wrap { visibility: hidden; }
+.largeBox-wrap { visibility: hidden; }
+/* Prevents :hover from triggering in the gaps between items */
+
+.box-wrap > * { visibility: visible; }
+.largeBox-wrap > * { visibility: visible; }
+/* Brings the child items back in, even though the parent is `hidden` */
+.box-wrap > * {
+  transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
+}
+.largeBox-wrap > * {
+  transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms;
+}
+/* Makes the fades smooth with a slight delay to prevent jumps as the mouse moves between items */
+
+.box-wrap:hover > * {
+  opacity: 0.4;
+  
+}
+.largeBox-wrap:hover > * {
+  opacity: 0.4;
+  
+}
+/* Fade out all items when the parent is hovered ..............................................*/
+
+.box-wrap > *:hover {
+  opacity: 1;
+  width: 300px;
+  height: 200px;
+  transition-delay: 0ms, 0ms;
+}
+.largeBox-wrap > *:hover {
+  opacity: 1;
+  width: 300px;
+  height: 200px;
+  transition-delay: 0ms, 0ms;
+}
+/* Fade in the currently hovered item */
+
+.largeBox {
+  flex-shrink: 0;
+  width: 250px;
+  height: 373px;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  object-fit: cover;
+  border-radius: 5px;
+  background-color: grey;
+}
+.box {
+  flex-shrink: 0;
+  width: 250px;
+  height: 150px;
+  margin: 10px;
+  transition: all 0.3s ease-in-out;
+  object-fit: cover;
+  border-radius: 5px;
+  background-color: grey;
+}
+.largeBox:hover {
+  width: 300px;
+  height: 440px;
+}
+.box-wrap::-webkit-scrollbar {
+  display: none;
+}
+.largeBox-wrap::-webkit-scrollbar {
+  display: none;
+}
