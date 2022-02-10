@@ -13,18 +13,61 @@
     height: 100%;
     object-fit: cover;
   }
+  [type="text"],
+  [type="email"],
+  [type="url"],
+  [type="password"],
+  [type="number"],
+  [type="date"],
+  [type="datetime-local"],
+  [type="month"],
+  [type="search"],
+  [type="tel"],
+  [type="time"],
+  [type="week"],
+  [multiple],
+  textarea,
+  select {
+    @apply  focus:ring-0 focus:border-0  text-black ;
+  }
+
+ 
+
 }
 @layer components {
-  
-.fade-bottom {
-  @apply w-full absolute bottom-0 h-32;
-  background-image: linear-gradient(
-    180deg,
-    transparent,
-    rgba(37, 37, 37, 0.72),
-    #111
-  );
-}
+  /* fade for banner */
+  .fade-bottom {
+    @apply w-full absolute bottom-0 h-32;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(37, 37, 37, 0.72),
+      #111
+    );
+  }
 
-
+  /* select on landing page */
+  .exp-select .react__single-value {
+    @apply text-white;
+  }
+  .exp-select .react__value-container {
+    @apply pl-1 p-0;
+  }
+  .exp-select .react__control {
+    @apply border pl-2 focus:border-white/90 focus:ring-white/90 hover:border-white/90 border-white/90 rounded bg-black shadow-none cursor-pointer;
+  }
+  .exp-select .react__menu {
+    @apply bg-black;
+  }
+  .exp-select .react__option {
+    @apply hover:bg-blue-600 cursor-pointer bg-gray-500;
+  }
+  .black-gradient {
+    background-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.8) 20%,
+      rgba(0, 0, 0, 0.4) 60%,
+      rgba(0, 0, 0, 0.8) 95%
+    ),url('./images/auth-bg.jpg');
+  }
 }

@@ -29,7 +29,7 @@ export const Banner = () => {
           height: "80vh",
         }}
       >
-        <div className="pb-12">
+        <div className="pl-12 pb-12">
           <h1 className="mb-5 text-[3.8rem]">
             {bannerMovie?.title ||
               bannerMovie?.name ||

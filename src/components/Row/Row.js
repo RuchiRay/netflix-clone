@@ -37,7 +37,7 @@ export const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
             );
           })}
         </div>
-        <div className="absolute cursor-pointer h-40 w-14 flex items-center justify-center top-2/4 opacity-30 hover:opacity-100 left-0">
+        <div className="absolute cursor-pointer h-40 w-14 flex items-center justify-center top-2/4 opacity-30 hover:opacity-100 left-0 -translate-y-2/4">
           <MdOutlineKeyboardArrowLeft
             className="text-[4rem]"
             onClick={() => {
@@ -45,7 +45,7 @@ export const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
             }}
           />
         </div>
-        <div className="absolute cursor-pointer h-40 w-14 flex items-center justify-center top-2/4 opacity-30 right-0 hover:opacity-100">
+        <div className="absolute cursor-pointer h-40 w-14 flex items-center justify-center top-2/4 opacity-30 right-0 hover:opacity-100 -translate-y-2/4">
           <MdOutlineKeyboardArrowRight
             className="text-[4rem]"
             onClick={() => {
