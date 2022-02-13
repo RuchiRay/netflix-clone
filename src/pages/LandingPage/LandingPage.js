@@ -2,8 +2,14 @@ import React,{useState} from "react";
 import Select, { components } from "react-select";
 import { FaGlobe } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
+import { useDispatch,useSelector } from "react-redux";
+import { login,logout,selectUser } from '../../features/userSlice'
+import { Navigate } from "react-router-dom";
+
 export const LandingPage = () => {
   const navigate = useNavigate();
+  const user = useSelector(selectUser);
+
   const handleGetStarted = ()=>{
     navigate("/signup");
   }
@@ -30,6 +36,7 @@ export const LandingPage = () => {
     );
   };
   return (
+    user.user ? <Navigate to="/home" replace={true} />:
     <div className=" items-center justify-center flex flex-col w-full h-screen bg-cover min-h-[650px] black-gradient ">
       <div className="flex justify-between fixed top-8 px-12 w-full">
         <div className="w-48">

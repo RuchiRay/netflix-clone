@@ -8,7 +8,6 @@ import { RowPoster } from "./RowPoster";
 export const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
   const [movies, setMovies] = useState([]);
   const toScroll = document.getElementById(id);
-  console.log(title, isLargeRow);
   useEffect(() => {
     const fetchdata = async () => {
       const request = await axios.get(fetchUrl);
