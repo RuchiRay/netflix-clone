@@ -16,7 +16,7 @@ function App() {
   const dispatch = useDispatch();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log('auth state changed');
+      // console.log('auth state changed');
       if (currentUser) {
         dispatch(login({ uid: currentUser.uid, email: currentUser.email }));
         localStorage.setItem(
@@ -30,7 +30,6 @@ function App() {
     });
     return unsubscribe;
   }, []);
-  console.log(user);
   return (
     <div className="app">
       <Router>

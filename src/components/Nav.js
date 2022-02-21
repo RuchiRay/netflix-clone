@@ -27,7 +27,6 @@ export const Nav = () => {
   window.addEventListener('scroll',handler)
   return () => window.removeEventListener("scroll", handler);
  }, [])
- console.log(bgBlack);
   return (
     <div className={`${bgBlack && 'bg-black'} fade-top transition-colors ease-linear  flex fixed w-full justify-between py-3  px-12 left-0 top-0 z-[1]`}>
       <div className="flex items-center">

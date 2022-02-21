@@ -16,8 +16,7 @@ export const Login = () => {
     setLoader(false);
   }, []);
 
-  console.log("loader state", loader);
-
+  
   const login = async (e) => {
     setLoader(true);
     console.log("login");
