@@ -2,6 +2,8 @@ import axios from "../../axios";
 import React, { useState, useEffect } from "react";
 import { requests } from "../../request";
 import truncate from "../../utilities/truncate";
+import { BsFillPlayFill } from "react-icons/bs";
+import { BiInfoCircle } from "react-icons/bi";
 export const Banner = () => {
   const [bannerMovie, setBannerMovie] = useState([]);
 
@@ -35,9 +37,12 @@ export const Banner = () => {
               bannerMovie?.name ||
               bannerMovie?.original_name}
           </h1>
-          <div>
-            <button className="py-3 w-32 rounded-md bg-white mr-4">Play</button>
-            <button className="py-3 w-32 rounded-md bg-white">My List</button>
+          <div className="flex gap-3">
+            <button className="h-12 w-40 rounded-md  bg-red-200 flex justify-center items-center">
+              {" "}
+              <BsFillPlayFill className="text-2xl mr-2" /> <span>Play</span>
+            </button>
+            <button className="h-12 w-40 rounded-md bg-gray-50  flex justify-center items-center"> <BiInfoCircle className="text-2xl mr-2"/> <span>More Info</span></button>
           </div>
           <div className="text-lg mt-4 w-[34rem]">
             <p>{truncate(bannerMovie?.overview)}</p>

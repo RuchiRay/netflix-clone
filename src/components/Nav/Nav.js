@@ -47,6 +47,7 @@ export const Nav = () => {
           <NavLink to="/tv">Tv Series</NavLink>
           <NavLink to="/movies">Movies</NavLink>
           <NavLink to="/popular">New and popular</NavLink>
+          <NavLink to="/mylist">My List</NavLink>
         </div>
       </div>
       <div className="w-12 h-12 cursor-pointer relative">
