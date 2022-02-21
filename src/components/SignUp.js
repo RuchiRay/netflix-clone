@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebaseConfig";
 import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
+import { Loader } from './Loader'
 export const SignUp = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+    setLoader(false);
+  }, []);
+
+  console.log("loader state in signup", loader);
+
   const register = async (e) => {
+    setLoader(true)
     e.preventDefault();
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
@@ -46,7 +56,7 @@ export const SignUp = () => {
             onClick={(e) => register(e)}
             className="bg-red-100 h-14 rounded text-xl"
           >
-            Sign Up
+           {loader ? <Loader /> : "Sign Up"}
           </button>
         </form>
         <div className="h-px w-[90%] bg-white/30 mt-6 mb-5 m-auto"></div>

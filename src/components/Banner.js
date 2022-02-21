@@ -1,7 +1,7 @@
-import axios from "../../axios";
+import axios from "../axios";
 import React, { useState, useEffect } from "react";
-import { requests } from "../../request";
-import truncate from "../../utilities/truncate";
+import { requests } from "../request";
+import truncate from "../utilities/truncate";
 import { BsFillPlayFill } from "react-icons/bs";
 import { BiInfoCircle } from "react-icons/bi";
 export const Banner = () => {

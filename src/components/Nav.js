@@ -1,9 +1,9 @@
 import React, { useState,useEffect } from "react";
-import netflixAvatar from "../../images/Netflix-avatar.png";
+import netflixAvatar from "../images/Netflix-avatar.png";
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase/firebaseConfig";
+import { auth } from "../firebase/firebaseConfig";
 import { useDispatch } from "react-redux";
-import { logout } from "../../features/userSlice";
+import { logout } from "../features/userSlice";
 import { useNavigate, NavLink } from "react-router-dom";
 
 export const Nav = () => {

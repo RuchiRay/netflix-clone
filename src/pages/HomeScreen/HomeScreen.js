@@ -1,6 +1,6 @@
 import React from 'react'
-import { Nav } from '../../components/Nav/Nav'
-import { Banner } from '../../components/Banner/Banner'
+import { Nav } from '../../components/Nav'
+import { Banner } from '../../components/Banner'
 import { Row } from '../../components/Row/Row'
 import { requests } from '../../request'
 export const HomeScreen = () => {

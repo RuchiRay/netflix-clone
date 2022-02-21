@@ -1,28 +1,31 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../firebase/firebaseConfig";
-import {
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
-import { useDispatch,useSelector } from "react-redux";
-import { login,logout,selectUser } from '../features/userSlice'
+import { onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, selectUser } from "../features/userSlice";
+import { Loader } from "./Loader";
 export const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const user = useSelector(selectUser)
-  
-  
-  
+  const user = useSelector(selectUser);
+  const [loader, setLoader] = useState(false);
+
+  useEffect(() => {
+    setLoader(false);
+  }, []);
+
+  console.log("loader state", loader);
 
   const login = async (e) => {
-    console.log('login');
+    setLoader(true);
+    console.log("login");
     e.preventDefault();
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
-      navigate('/home',{ replace: true })
+      navigate("/home", { replace: true });
     } catch (error) {
       console.log(error.message);
     }
@@ -30,6 +33,7 @@ export const Login = () => {
   return (
     <div className="bg-black/70 w-[30rem] p-12 rounded">
       <p className="text-3xl font-bold mb-6">Sign In</p>
+
       <div className="flex flex-col">
         <form className="flex flex-col gap-5">
           <input
@@ -49,7 +53,7 @@ export const Login = () => {
             onClick={(e) => login(e)}
             className="bg-red-100 h-14 rounded text-xl"
           >
-            Sign In
+            {loader ? <Loader /> : "Sign In"}
           </button>
         </form>
         <div className="h-px w-[90%] bg-white/30 mt-6 mb-5 m-auto"></div>
