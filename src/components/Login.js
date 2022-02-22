@@ -16,7 +16,6 @@ export const Login = () => {
     setLoader(false);
   }, []);
 
-  
   const login = async (e) => {
     setLoader(true);
     console.log("login");
@@ -24,7 +23,6 @@ export const Login = () => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password);
       console.log(user);
-      navigate("/home", { replace: true });
     } catch (error) {
       console.log(error.message);
     }

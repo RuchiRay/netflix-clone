@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "./features/userSlice";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import { SplashAnimation } from "./components/splashAnimation/SplashAnimation";
+import { SplashAnimation } from './components/splashAnimation/SplashAnimation';
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -35,6 +37,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/splash" element={<SplashAnimation />} />
           <Route
             path="/login"
             element={
