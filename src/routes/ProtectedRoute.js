@@ -3,20 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout, selectUser } from "../features/userSlice";
 import { Navigate } from "react-router-dom";
 import { Loader } from "../components/Loader";
+import { SplashAnimation } from "../components/splashAnimation/SplashAnimation";
 export const ProtectedRoute = ({ children }) => {
   const user = useSelector(selectUser);
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    console.log("useffect");
-
-    if (user.user) {
-      console.log(user,'from protected');
-      setLoading(false);
-    }
-    else
-    console.log('no user');
-    
-  }, [user]);
+  setTimeout(() => {
+    setLoading(false)
+  }, 4000);
 
   // console.log("loading from protected routing", loading);
 
@@ -24,6 +17,6 @@ export const ProtectedRoute = ({ children }) => {
   // const userObj = JSON.parse(user)
   // console.log(userObj);
   // return userObj? children : <Navigate to="/login" replace={true} />;
-  if (loading) return <Loader fullpage />;
+  if (loading) return <SplashAnimation />;
   else return user.user ? children : <Navigate to="/login" replace={true} />;
 };
