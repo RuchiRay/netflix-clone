@@ -13,6 +13,7 @@ import { login, logout, selectUser } from "./features/userSlice";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import { SplashAnimation } from "./components/splashAnimation/SplashAnimation";
 import { SplashAnimation } from './components/splashAnimation/SplashAnimation';
+import { TvPage } from "./pages/tv-page/TvPage";
 function App() {
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -59,6 +60,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <HomeScreen />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/tv"
+            element={
+              <ProtectedRoute>
+                <TvPage />
               </ProtectedRoute>
             }
           />

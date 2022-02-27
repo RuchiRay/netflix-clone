@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./splashAnimation.scss";
+import tadum from "../../images/tadum.mp3";
+import { Howl, Howler } from "howler";
 export const SplashAnimation = () => {
+  const sound = new Howl({
+    src: tadum,
+    // autoplay: true,
+  });
+  const soundref = useRef(null);
+  const check = () => {
+  console.log('check');
+  sound.play();
+  Howler.volume(0.5);
+  };
+  // useEffect(() => {
+   
+  //   soundref.current.click();
+  // }, []);
+ 
   return (
-    <div id="container">
-    {/* <!-- Edit the letter attr to: N, E, T, F, L, I or X --> */}
-       <div className="netflixintro" letter="N">
+    <div id="container" ref={soundref} onClick={check()}>
+      {/* <!-- Edit the letter attr to: N, E, T, F, L, I or X --> */}
+      <div className="netflixintro" letter="N">
         <div className="helper-1">
           <div className="effect-brush">
             <span className="fur-31"></span>

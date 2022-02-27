@@ -30,7 +30,7 @@ export const SignUp = () => {
     }
   };
   return (
-    <div className="bg-black/70 w-[30rem] p-12 rounded">
+    <div className="bg-black/70 w-[30rem] z-10 p-12 rounded">
       <p className="text-3xl font-bold mb-6">Sign Up</p>
       <div className="flex flex-col">
         <form className="flex flex-col gap-5">
