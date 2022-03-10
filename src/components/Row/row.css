@@ -60,7 +60,6 @@
   transition: all 0.3s ease-in-out;
   object-fit: cover;
   border-radius: 5px;
-  background-color: grey;
 }
 .box {
   flex-shrink: 0;
@@ -70,7 +69,6 @@
   transition: all 0.3s ease-in-out;
   object-fit: cover;
   border-radius: 5px;
-  background-color: grey;
 }
 .largeBox:hover {
   width: 300px;

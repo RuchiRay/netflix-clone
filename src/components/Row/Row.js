@@ -4,7 +4,8 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 import "./row.css";
 import { RowPoster } from "./RowPoster";
-
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 export const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
   const [movies, setMovies] = useState([]);
   const toScroll = document.getElementById(id);
@@ -26,10 +27,18 @@ export const Row = ({ title, fetchUrl, isLargeRow = false, id }) => {
             const imgSrc = isLargeRow ? poster_path : backdrop_path;
             return (
               <div className={isLargeRow ? "largeBox" : "box"} key={id}>
-                <img
+                {/* <img
                   src={`https://image.tmdb.org/t/p/original/${imgSrc}`}
-                  className='rounded-md'
+                  className="rounded-md"
                   alt=""
+                /> */}
+                <LazyLoadImage
+                  alt="image"
+                  height={"100%"}
+                  src={`https://image.tmdb.org/t/p/original/${imgSrc}`}
+                  width={'100%'}
+                  effect="blur"
+                 className="rounded-md"
                 />
                 <RowPoster />
               </div>
